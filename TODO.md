@@ -21,6 +21,11 @@ Detailed roadmap for building the Skill Manager CLI in Rust.
 - [x] Implement Git cloning logic.
 - [x] Save the `remote_url` to the configuration file.
 
+### `skm push`
+- [x] List changed files in the vault.
+- [x] Interactively prompt for commit message and confirmation.
+- [x] Implement git add, commit, and push.
+
 ### `skm list`
 - [x] Traverse the Vault directory to find skills (folders with `SKILL.md`).
 - [x] Detect if skills are already linked in the Target directory.
@@ -39,12 +44,15 @@ Detailed roadmap for building the Skill Manager CLI in Rust.
 - [x] **Dry Run Logic**: Print intended actions without executing them.
 
 ## Phase 5: Synchronization & Advanced Features
-### `skm sync`
+### `skm pull`
 - [x] Implement `git pull` in the Vault directory.
-- [x] Automatically trigger a `link` validation after sync.
+- [x] Automatically trigger a `link` validation after pull.
 
 ### `skm link [skill_name]`
 - [x] Support linking a specific skill by name or all skills.
+
+### `skm unlink [skill_name]`
+- [x] Implement removing specific or all managed symlinks.
 
 ### `skm completion <shell>`
 - [x] Implement completion script generation using `clap_complete`.
@@ -54,6 +62,7 @@ Detailed roadmap for building the Skill Manager CLI in Rust.
 - [x] Implement viewing of current configuration.
 
 ## Phase 6: Refinement & Testing
+- [x] **Cross-platform Support**: Implement cross-platform symlinking (Windows support).
 - [x] **Error Handling**: Use structured `anyhow` errors throughout.
 - [x] **Unit Tests**:
   - [x] Test path resolution logic.

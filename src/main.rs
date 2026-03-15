@@ -5,9 +5,12 @@ mod config;
 mod init;
 mod onboard;
 mod link;
-mod sync;
+mod pull;
 mod list;
 mod check;
+mod utils;
+mod unlink;
+mod push;
 
 #[derive(Parser)]
 #[command(name = "skm")]
@@ -35,12 +38,19 @@ enum Commands {
         repo_url: String,
     },
     /// Pulls latest changes from Git and re-validates links
-    Sync,
+    Pull,
+    /// Commits and pushes local changes in the vault to Git
+    Push,
     /// Lists all available skills and their current status
     List,
     /// Symlinks specific or all skills
     Link {
         /// The name of the skill to link (optional, links all if not provided)
+        skill_name: Option<String>,
+    },
+    /// Removes symlinks for specific or all skills
+    Unlink {
+        /// The name of the skill to unlink (optional, unlinks all managed skills if not provided)
         skill_name: Option<String>,
     },
     /// View or modify the current configuration
@@ -64,14 +74,20 @@ fn main() -> Result<()> {
         Commands::Init { repo_url } => {
             init::run(repo_url.clone())?;
         }
-        Commands::Sync => {
-            sync::run(cli.dry_run, cli.target_dir.clone())?;
+        Commands::Pull => {
+            pull::run(cli.dry_run, cli.target_dir.clone())?;
+        }
+        Commands::Push => {
+            push::run(cli.dry_run)?;
         }
         Commands::List => {
             list::run()?;
         }
         Commands::Link { skill_name } => {
             link::run(skill_name.clone(), cli.dry_run, cli.target_dir.clone())?;
+        }
+        Commands::Unlink { skill_name } => {
+            unlink::run(skill_name.clone(), cli.dry_run, cli.target_dir.clone())?;
         }
         Commands::Config => {
             let config = config::Config::load()?;

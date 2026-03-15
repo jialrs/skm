@@ -3,7 +3,7 @@ use anyhow::{Result, Context};
 use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 use std::fs;
-use std::os::unix::fs::symlink;
+use crate::utils::symlink_dir;
 
 pub fn run(skill_name: Option<String>, dry_run: bool, target_dir_override: Option<String>) -> Result<()> {
     let mut config = Config::load()?;
@@ -89,7 +89,7 @@ fn link_skill(source: &Path, target: &Path, dry_run: bool) -> Result<()> {
         println!("  Would link {:?} -> {:?}", source.file_name().unwrap(), target);
     } else {
         println!("Linking {:?} -> {:?}", source.file_name().unwrap(), target);
-        symlink(source, target).context("Failed to create symlink")?;
+        symlink_dir(source, target).context("Failed to create symlink")?;
     }
     Ok(())
 }

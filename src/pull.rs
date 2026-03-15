@@ -9,7 +9,7 @@ pub fn run(dry_run: bool, target_dir_override: Option<String>) -> Result<()> {
          anyhow::bail!("Vault not found. Run 'skm init' first.");
     }
 
-    println!("Syncing vault at {:?}", config.vault_path);
+    println!("Pulling latest changes in {:?}", config.vault_path);
     
     if !dry_run {
         let status = Command::new("git")

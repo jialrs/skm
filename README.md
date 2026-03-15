@@ -16,8 +16,8 @@
 ## 3. Architecture & Flow
 
 1. **Onboard/Init**: `skm onboard` or `skm init` sets up the configuration (Vault path, Target path, Git URL) and clones the repository.
-2. **Sync**: `git pull` updates the Vault from the configured remote.
-3. **Render**: (Optional) Tera templates process machine-specific variables.
+2. **Pull**: `git pull` updates the Vault from the configured remote and validates links.
+3. **Push**: Interactively commit and push local changes to the remote vault.
 4. **Link**: Symlinks are created/validated in the Target directory.
 5. **Execute**: Claude invokes the skill; `uv run` handles Python dependencies on-the-fly.
 
@@ -44,9 +44,11 @@ my-skill-folder/
 | --- | --- |
 | `skm onboard` | Interactive setup for Vault path, Target path, and Git URL. |
 | `skm init <repo_url>` | Non-interactive initialization (clones vault and saves URL). |
-| `skm sync` | Pulls latest changes from Git and re-validates links. |
+| `skm pull` | Pulls latest changes from Git and re-validates links. |
+| `skm push` | Interactively commits and pushes changes to the remote vault. |
 | `skm list` | Lists all available skills and their current status (Linked/Unlinked). |
 | `skm link [skill_name]` | Symlinks specific or all skills. Supports `--target-dir` override. |
+| `skm unlink [skill_name]` | Removes symlinks for specific or all skills. |
 | `skm config` | View the current configuration. |
 | `skm completion <shell>` | Generate shell completion scripts (Bash, Zsh, Fish). |
 | `skm check` | Validates if `uv` and other required runtimes are installed. |
