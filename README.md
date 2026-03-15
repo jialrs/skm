@@ -73,6 +73,20 @@ remote_url = "https://github.com/username/my-skills.git"
 
 ## 7. Installation & Setup
 
+### Automated Install (Recommended)
+You can install `skm` using the automated install script:
+
+**macOS/Linux (Shell):**
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/jialrs/skm/releases/latest/download/skm-installer.sh | sh
+```
+
+**Windows (PowerShell):**
+```powershell
+powershell -c "irm https://github.com/jialrs/skm/releases/latest/download/skm-installer.ps1 | iex"
+```
+
+### Manual Build
 1. **Build**: `cargo build --release`
 2. **Setup**: Run `skm onboard` to configure your vault and target paths.
 3. **Completion**: Add `source <(skm completion zsh)` to your `.zshrc` (or equivalent for your shell).
