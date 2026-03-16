@@ -1,6 +1,6 @@
 [package]
 name = "skm"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 description = "A lightweight Skill Manager for Claude Agents"
 repository = "https://github.com/jialrs/skm"
