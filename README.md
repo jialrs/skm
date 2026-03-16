@@ -1,8 +1,17 @@
 # SKM (Skill Manager) - Technical Specification
-
 ## 1. Overview
 
 `skm` is a lightweight, high-performance CLI tool written in **Rust** designed to manage and synchronize **Claude Agent Skills** (`SKILL.md` format) across multiple machines. It treats skills as "Infrastructure as Code," using Git for versioning and symlinks for deployment.
+
+### Prerequisites
+
+To use `skm` effectively, ensure you have the following tools installed:
+
+*   **Git**: Required for syncing your skill vault (`pull` and `push`).
+*   **uv**: Required for the zero-config execution of Python-based skills (highly recommended).
+*   **Rust (Cargo)**: Only needed if building from source.
+
+---
 
 ## 2. Core Concepts
 

@@ -20,6 +20,15 @@ fn check_tool(tool: &str, arg: &str) -> Result<()> {
         }
         Err(_) => {
             println!("❌ {} not found in PATH", tool);
+            match tool {
+                "git" => {
+                    println!("   💡 Install git: 'brew install git' (macOS) or 'apt-get install git' (Linux)");
+                }
+                "uv" => {
+                    println!("   💡 Install uv: 'brew install uv' (macOS) or 'curl -LsSf https://astral.sh/uv/install.sh | sh' (Linux/macOS)");
+                }
+                _ => {}
+            }
         }
     }
     Ok(())
