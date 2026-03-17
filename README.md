@@ -95,13 +95,6 @@ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/jialrs/skm/releases/lat
 powershell -c "irm https://github.com/jialrs/skm/releases/latest/download/skm-installer.ps1 | iex"
 ```
 
-### Homebrew (macOS/Linux)
-You can install `skm` via Homebrew:
-```bash
-brew tap jialrs/skm
-brew install skm
-```
-
 ### Manual Build
 1. **Build**: `cargo build --release`
 2. **Setup**: Run `skm onboard` to configure your vault and target paths.
