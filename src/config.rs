@@ -16,7 +16,7 @@ impl Config {
         let home = home_dir().context("Could not determine home directory")?;
         
         Ok(Self {
-            vault_path: home.join(".config/skm/vault"),
+            vault_path: home.join("skm/vault"),
             target_path: home.join(".claude/skills"),
             remote_url: None,
         })
@@ -48,7 +48,7 @@ impl Config {
 
     fn config_file_path() -> Result<PathBuf> {
         let home = home_dir().context("Could not determine home directory")?;
-        Ok(home.join(".config/skm/config.toml"))
+        Ok(home.join("skm/config.toml"))
     }
 }
 
@@ -61,7 +61,7 @@ mod tests {
         let config = Config::default_config();
         assert!(config.is_ok());
         let config = config.unwrap();
-        assert!(config.vault_path.ends_with(".config/skm/vault"));
+        assert!(config.vault_path.ends_with("skm/vault"));
         assert!(config.target_path.ends_with(".claude/skills"));
         assert!(config.remote_url.is_none());
     }

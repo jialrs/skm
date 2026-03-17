@@ -8,7 +8,7 @@ This document provides essential context and instructions for AI agents working 
 
 ### Core Concepts
 
-*   **The Vault**: A local Git repository (default: `~/.config/skm/vault`) containing all skill folders.
+*   **The Vault**: A local Git repository (default: `~/skm/vault`) containing all skill folders.
 *   **The Target**: The official Claude skills directory (default: `~/.claude/skills/`).
 *   **Deployment**: Skills are symlinked from the Vault to the Target, allowing real-time updates and Git tracking.
 *   **Runtime**: Leverages `uv run` within scripts associated with `SKILL.md` for zero-config environment setup.

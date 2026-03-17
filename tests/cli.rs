@@ -40,7 +40,7 @@ fn test_config_command() {
 fn test_link_dry_run() {
     let tmp_dir = tempdir().unwrap();
     let home = tmp_dir.path();
-    let vault = home.join(".config/skm/vault");
+    let vault = home.join("skm/vault");
     let target = home.join(".claude/skills");
     
     fs::create_dir_all(&vault).unwrap();

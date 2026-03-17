@@ -15,7 +15,7 @@ To use `skm` effectively, ensure you have the following tools installed:
 
 ## 2. Core Concepts
 
-* **The Vault**: A local Git repository (default: `~/.config/skm/vault`) containing all skill folders. The remote Git URL is stored in the configuration.
+* **The Vault**: A local Git repository (default: `~/skm/vault`) containing all skill folders. The remote Git URL is stored in the configuration.
 * **The Target**: The official Claude skills directory (default: `~/.claude/skills/`). This can be overridden via configuration or CLI flags.
 * **Deployment**: Skills are **symlinked** from the Vault to the Target to allow real-time updates and Git tracking.
 * **Runtime**: Leverages `uv run` within the scripts associated with `SKILL.md` to ensure zero-config environment setup on new machines.
@@ -70,10 +70,10 @@ my-skill-folder/
 
 ## 6. Configuration
 
-Configuration is stored in `~/.config/skm/config.toml`:
+Configuration is stored in `~/skm/config.toml`:
 
 ```toml
-vault_path = "/Users/user/.config/skm/vault"
+vault_path = "/Users/user/skm/vault"
 target_path = "/Users/user/.claude/skills"
 remote_url = "https://github.com/username/my-skills.git"
 ```

@@ -9,7 +9,7 @@ Detailed roadmap for building the Skill Manager CLI in Rust.
 
 ## Phase 2: Configuration & Path Management
 - [x] **Configuration Schema**: Define a struct to store paths and remote URL.
-- [x] **Persistence**: Implement loading/saving to `~/.config/skm/config.toml`.
+- [x] **Persistence**: Implement loading/saving to `~/skm/config.toml`.
 - [x] **Path Resolution**: Create a module to handle default paths.
 
 ## Phase 3: Core Commands Implementation
