@@ -11,6 +11,8 @@ mod check;
 mod utils;
 mod unlink;
 mod push;
+mod reset;
+mod update;
 
 #[derive(Parser)]
 #[command(name = "skm")]
@@ -41,6 +43,13 @@ enum Commands {
     Pull,
     /// Commits and pushes local changes in the vault to Git
     Push,
+    /// Discards local changes and resets the vault or a specific skill to HEAD
+    Reset {
+        /// The name of the skill to reset (optional, resets entire vault if not provided)
+        skill_name: Option<String>,
+    },
+    /// Updates skm to the latest version from GitHub
+    Update,
     /// Lists all available skills and their current status
     List,
     /// Symlinks specific or all skills
@@ -79,6 +88,12 @@ fn main() -> Result<()> {
         }
         Commands::Push => {
             push::run(cli.dry_run)?;
+        }
+        Commands::Reset { skill_name } => {
+            reset::run(skill_name.clone(), cli.dry_run)?;
+        }
+        Commands::Update => {
+            update::run()?;
         }
         Commands::List => {
             list::run()?;

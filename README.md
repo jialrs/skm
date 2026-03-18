@@ -55,6 +55,8 @@ my-skill-folder/
 | `skm init <repo_url>` | Non-interactive initialization (clones vault and saves URL). |
 | `skm pull` | Pulls latest changes from Git and re-validates links. |
 | `skm push` | Interactively commits and pushes changes to the remote vault. |
+| `skm reset [skill_name]` | Discards local changes and resets to HEAD. |
+| `skm update` | Updates `skm` to the latest version from GitHub. |
 | `skm list` | Lists all available skills and their current status (Linked/Unlinked). |
 | `skm link [skill_name]` | Symlinks specific or all skills. Supports `--target-dir` override. |
 | `skm unlink [skill_name]` | Removes symlinks for specific or all skills. |
